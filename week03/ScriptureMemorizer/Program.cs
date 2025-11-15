@@ -1,13 +1,29 @@
 using System;
+using System.Text.Encodings.Web;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Reference reference = new Reference("Proverbs", 3, 5, 6);
+        // ---Creative feature: added a library of scriptures and the program choses one randomly
 
-        string text = "Trust in the Lord with all thine heart and lean not unto thine own understanding.";
-        Scripture scripture = new Scripture(reference, text);
+        Reference r1 = new Reference("Proverbs", 3, 5, 6);
+        string t1 = "Trust in the Lord with all thine heart and lean not unto thine own understanding.";
+
+        Reference r2 = new Reference ("John", 3, 16);
+        string t2 = "For God so loved the world that he gave his only begotten Son, "
+                    + "that whosoever believeth in him should not perish but have everlasting life.";
+
+        Reference r3 = new Reference ("Psalm", 23, 1);
+        string t3 = "The Lord is my shepherd; I shall not want.";
+
+        Reference[] references = {r1, r2, r3};
+        string[] texts = {t1, t2, t3};
+
+        Random rand = new Random();
+        int index = rand.Next(0, references.Length);
+
+        Scripture scripture = new Scripture(references[index], texts[index]);
         while (true)
         {
             Console.Clear();
