@@ -1,3 +1,4 @@
+ // ---Creative feature: added a library of scriptures and the program choses one randomly
 using System;
 using System.Text.Encodings.Web;
 
@@ -5,8 +6,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // ---Creative feature: added a library of scriptures and the program choses one randomly
-
         Reference r1 = new Reference("Proverbs", 3, 5, 6);
         string t1 = "Trust in the Lord with all thine heart and lean not unto thine own understanding.";
 
