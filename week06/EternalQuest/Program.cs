@@ -40,9 +40,11 @@ class Program
     static void CreateGoal()
     {
         Console.WriteLine("The types of Goals are: ");
+
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
+
         Console.WriteLine("Which type of goal would you like to create? ");
 
         int type = int.Parse(Console.ReadLine());
@@ -62,7 +64,7 @@ class Program
         }
         else if( type == 2)
         {
-            goals. Add(new EternalGoal(name, description, points));
+            goals.Add(new EternalGoal(name, description, points));
         }
         else
         {
