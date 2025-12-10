@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using System.Reflection.Metadata;
 public abstract class Activity
 {
     private DateTime _date;
@@ -18,7 +20,11 @@ public abstract class Activity
 
     public string GetSummary()
     {
-        return $"{_date.ToString("dd MMM yyyy")} {this.GetType().Name} ({_minutes} min): "+
-               $"Distance {GetDistance():0.0} kilometers, Speed {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per kilometer";
+        CultureInfo ci = new CultureInfo("en-Us");
+
+        return $"{_date.ToString("dd MMM yyyy", ci)} {this.GetType().Name} ({_minutes} min): "+
+               $"Distance {GetDistance().ToString("0.0", ci)} kilometers, "+
+               $"Speed {GetSpeed().ToString("0.0", ci)} kph, "+
+               $"Pace: {GetPace().ToString("0.0", ci)} min per kilometer";
     }
 }
